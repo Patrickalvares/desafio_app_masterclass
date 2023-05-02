@@ -103,6 +103,46 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+          height: 60,
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              TextButton(
+                style: TextButton.styleFrom(padding: EdgeInsets.all(10.0)),
+                onPressed: () {},
+                child: Column(
+                  children: <Widget>[Icon(Icons.home), Text('Home')],
+                ),
+              ),
+              Container(
+                color: Colors.black,
+                width: 2,
+              ),
+              TextButton(
+                style: TextButton.styleFrom(padding: EdgeInsets.all(10.0)),
+                onPressed: () {},
+                child: Column(
+                  children: <Widget>[Icon(Icons.business), Text('Business')],
+                ),
+              ),
+              Container(
+                color: Colors.black,
+                width: 2,
+              ),
+              TextButton(
+                style: TextButton.styleFrom(padding: EdgeInsets.all(10.0)),
+                onPressed: () {},
+                child: Column(
+                  children: <Widget>[Icon(Icons.school), Text('School')],
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
