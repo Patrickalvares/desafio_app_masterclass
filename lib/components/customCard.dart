@@ -7,7 +7,8 @@ class CustomCard extends StatelessWidget {
   final String description;
   final int exerciseCount;
 
-  CustomCard({
+  const CustomCard({
+    super.key,
     required this.title,
     required this.imagePath,
     required this.description,
@@ -43,7 +44,10 @@ class CustomCard extends StatelessWidget {
                           color: colorScheme.primary,
                           borderRadius: BorderRadius.circular(100),
                         ),
-                        child: Image.asset(imagePath),
+                        child: Image.asset(
+                          imagePath,
+                          color: colorScheme.background,
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 13),
@@ -93,7 +97,10 @@ class CustomCard extends StatelessWidget {
                         SizedBox(
                           height: 20,
                           width: 20,
-                          child: Image.asset('lib/assets/awesome-github.png'),
+                          child: Image.asset(
+                            'lib/assets/awesome-github.png',
+                            color: colorScheme.secondary,
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 4.36),
@@ -117,7 +124,7 @@ class CustomCard extends StatelessWidget {
                             style: GoogleFonts.poppins(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w600,
-                                color: colorScheme.secondary)),
+                                color: Colors.white)),
                       ),
                     ),
                   ],
