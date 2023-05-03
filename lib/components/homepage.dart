@@ -105,40 +105,99 @@ class _HomePageState extends State<HomePage> {
       ),
       bottomNavigationBar: BottomAppBar(
         child: Container(
-          height: 60,
+          color: colorScheme.tertiary,
+          height: 80,
           child: Row(
             mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               TextButton(
-                style: TextButton.styleFrom(padding: EdgeInsets.all(10.0)),
+                style: TextButton.styleFrom(
+                  padding: const EdgeInsets.all(10.0),
+                ),
                 onPressed: () {},
                 child: Column(
-                  children: <Widget>[Icon(Icons.home), Text('Home')],
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    SizedBox(
+                      height: 24,
+                      width: 24,
+                      child: Image.asset(
+                        'lib/assets/Icon feather-target@2x.png',
+                        color: colorScheme.secondary,
+                      ),
+                    ),
+                    Text(
+                      'Atividades',
+                      style: GoogleFonts.montserrat(
+                          fontSize: 12,
+                          color: colorScheme.secondary,
+                          fontWeight: FontWeight.w600),
+                    )
+                  ],
                 ),
               ),
               Container(
-                color: Colors.black,
-                width: 2,
+                color: const Color(0xFF51565A),
+                width: 1,
+                height: 45,
               ),
               TextButton(
-                style: TextButton.styleFrom(padding: EdgeInsets.all(10.0)),
+                style:
+                    TextButton.styleFrom(padding: const EdgeInsets.all(10.0)),
                 onPressed: () {},
                 child: Column(
-                  children: <Widget>[Icon(Icons.business), Text('Business')],
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    SizedBox(
+                      height: 24,
+                      width: 24,
+                      child: Image.asset(
+                        'lib/assets/awesome-github@2x.png',
+                        color: colorScheme.secondary,
+                      ),
+                    ),
+                    Text(
+                      'Repositórios',
+                      style: GoogleFonts.montserrat(
+                          fontSize: 12,
+                          color: colorScheme.secondary,
+                          fontWeight: FontWeight.w600),
+                    )
+                  ],
                 ),
               ),
               Container(
-                color: Colors.black,
-                width: 2,
+                color: const Color(0xFF51565A),
+                width: 1,
+                height: 45,
               ),
               TextButton(
-                style: TextButton.styleFrom(padding: EdgeInsets.all(10.0)),
+                style:
+                    TextButton.styleFrom(padding: const EdgeInsets.all(10.0)),
                 onPressed: () {},
                 child: Column(
-                  children: <Widget>[Icon(Icons.school), Text('School')],
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    SizedBox(
+                      height: 24,
+                      width: 24,
+                      child: Icon(
+                        Icons.person,
+                        color: colorScheme.secondary,
+                        size: 30,
+                      ),
+                    ),
+                    Text(
+                      'Sobre o dev',
+                      style: GoogleFonts.montserrat(
+                          fontSize: 12,
+                          color: colorScheme.secondary,
+                          fontWeight: FontWeight.w600),
+                    )
+                  ],
                 ),
-              )
+              ),
             ],
           ),
         ),
