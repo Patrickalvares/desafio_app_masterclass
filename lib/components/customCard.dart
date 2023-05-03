@@ -1,3 +1,4 @@
+import 'package:desafio_app_masterclass/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -8,12 +9,12 @@ class CustomCard extends StatelessWidget {
   final int exerciseCount;
 
   const CustomCard({
-    super.key,
+    Key? key,
     required this.title,
     required this.imagePath,
     required this.description,
     required this.exerciseCount,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -112,19 +113,27 @@ class CustomCard extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Container(
-                      height: 34.5,
-                      width: 119,
-                      decoration: BoxDecoration(
-                        color: colorScheme.primary,
-                        borderRadius: BorderRadius.circular(48),
-                      ),
-                      child: Center(
-                        child: Text('Ver mais',
-                            style: GoogleFonts.poppins(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.white)),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AnimationScreen()));
+                      },
+                      child: Container(
+                        height: 34.5,
+                        width: 119,
+                        decoration: BoxDecoration(
+                          color: colorScheme.primary,
+                          borderRadius: BorderRadius.circular(48),
+                        ),
+                        child: Center(
+                          child: Text('Ver mais',
+                              style: GoogleFonts.poppins(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white)),
+                        ),
                       ),
                     ),
                   ],

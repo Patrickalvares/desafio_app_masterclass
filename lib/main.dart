@@ -1,14 +1,18 @@
 import 'package:desafio_app_masterclass/components/homepage.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp(onToggleTheme: () {}));
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => ThemeNotifier(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
-  final void Function() onToggleTheme;
-
-  const MyApp({required this.onToggleTheme, Key? key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -21,11 +25,11 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _isDarkTheme = !_isDarkTheme;
     });
-    widget.onToggleTheme();
   }
 
   @override
   Widget build(BuildContext context) {
+    ThemeNotifier themeNotifier = Provider.of<ThemeNotifier>(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
@@ -49,8 +53,19 @@ class _MyAppState extends State<MyApp> {
           background: Color(0xFF172026),
         ),
       ),
-      themeMode: _isDarkTheme ? ThemeMode.dark : ThemeMode.light,
-      home: HomePage(onToggleTheme: _toggleTheme),
+      themeMode: themeNotifier.isDarkTheme ? ThemeMode.dark : ThemeMode.light,
+      home: HomePage(),
     );
+  }
+}
+
+class ThemeNotifier extends ChangeNotifier {
+  bool _isDarkTheme = false;
+
+  bool get isDarkTheme => _isDarkTheme;
+
+  void toggleTheme() {
+    _isDarkTheme = !_isDarkTheme;
+    notifyListeners();
   }
 }

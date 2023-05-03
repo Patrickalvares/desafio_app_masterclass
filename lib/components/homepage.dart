@@ -1,11 +1,11 @@
 import 'package:desafio_app_masterclass/components/customCard.dart';
+import 'package:desafio_app_masterclass/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
-  final void Function() onToggleTheme;
-
-  const HomePage({required this.onToggleTheme, Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeNotifier themeNotifier = Provider.of<ThemeNotifier>(context);
     ColorScheme colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
       backgroundColor: colorScheme.tertiary,
@@ -61,7 +62,9 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                   GestureDetector(
-                    onTap: widget.onToggleTheme,
+                    onTap: () {
+                      themeNotifier.toggleTheme();
+                    },
                     child: Padding(
                       padding: const EdgeInsets.only(right: 26.55),
                       child: SizedBox(
@@ -73,27 +76,27 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
               const SizedBox(
                 height: 12,
               ),
-              const CustomCard(
+              CustomCard(
                 title: 'Animações',
                 imagePath: 'lib/assets/awesome-running.png',
                 description:
                     'Estudos sobre animações implícitas e controladas, contendo 4 exercícios e 2 estudos',
                 exerciseCount: 4,
               ),
-              const CustomCard(
+              CustomCard(
                 title: 'Leitura de Mockup',
                 imagePath: 'lib/assets/Icon awesome-glasses.png',
                 description:
                     'Aplicação da técnica de leitura de mockup, contendo 2 exercícios',
                 exerciseCount: 2,
               ),
-              const CustomCard(
+              CustomCard(
                 title: 'Playground',
                 imagePath: 'lib/assets/Icon material-toys.png',
                 description: 'Ambiente destinado a testes e estudos em geral',
