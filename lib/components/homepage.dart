@@ -12,14 +12,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool _isDarkTheme = false;
-
-  void _toggleTheme() {
-    setState(() {
-      _isDarkTheme = !_isDarkTheme;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     ThemeNotifier themeNotifier = Provider.of<ThemeNotifier>(context);
@@ -82,21 +74,21 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(
                 height: 12,
               ),
-              CustomCard(
+              const CustomCard(
                 title: 'Animações',
                 imagePath: 'lib/assets/awesome-running.png',
                 description:
                     'Estudos sobre animações implícitas e controladas, contendo 4 exercícios e 2 estudos',
                 exerciseCount: 4,
               ),
-              CustomCard(
+              const CustomCard(
                 title: 'Leitura de Mockup',
                 imagePath: 'lib/assets/Icon awesome-glasses.png',
                 description:
                     'Aplicação da técnica de leitura de mockup, contendo 2 exercícios',
                 exerciseCount: 2,
               ),
-              CustomCard(
+              const CustomCard(
                 title: 'Playground',
                 imagePath: 'lib/assets/Icon material-toys.png',
                 description: 'Ambiente destinado a testes e estudos em geral',

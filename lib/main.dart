@@ -1,14 +1,21 @@
 import 'package:desafio_app_masterclass/components/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter/services.dart';
 
 void main() {
-  runApp(
-    ChangeNotifierProvider(
-      create: (_) => ThemeNotifier(),
-      child: MyApp(),
-    ),
-  );
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]).then((_) {
+    runApp(
+      ChangeNotifierProvider(
+        create: (_) => ThemeNotifier(),
+        child: const MyApp(),
+      ),
+    );
+  });
 }
 
 class MyApp extends StatefulWidget {
@@ -19,14 +26,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  bool _isDarkTheme = false;
-
-  void _toggleTheme() {
-    setState(() {
-      _isDarkTheme = !_isDarkTheme;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     ThemeNotifier themeNotifier = Provider.of<ThemeNotifier>(context);
@@ -54,7 +53,7 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       themeMode: themeNotifier.isDarkTheme ? ThemeMode.dark : ThemeMode.light,
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }

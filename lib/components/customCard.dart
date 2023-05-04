@@ -118,7 +118,7 @@ class CustomCard extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => AnimationScreen()));
+                                builder: (context) => const AnimationScreen()));
                       },
                       child: Container(
                         height: 34.5,
