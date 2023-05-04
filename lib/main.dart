@@ -1,7 +1,7 @@
-import 'package:desafio_app_masterclass/components/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
+import 'package:desafio_app_masterclass/homepage.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -53,7 +53,7 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       themeMode: themeNotifier.isDarkTheme ? ThemeMode.dark : ThemeMode.light,
-      home: const HomePage(),
+      home: const HomePage1(),
     );
   }
 }
