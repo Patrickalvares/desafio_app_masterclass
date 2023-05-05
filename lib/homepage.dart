@@ -150,7 +150,7 @@ class _HomePage1State extends State<HomePage1> {
                       height: 24,
                       width: 24,
                       child: Image.asset(
-                        'lib/assets/awesome-github@2x.png',
+                        'lib/assets/awesome-github.png',
                         color: colorScheme.secondary,
                       ),
                     ),

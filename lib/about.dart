@@ -116,6 +116,7 @@ class _AboutTheDevState extends State<AboutTheDev> {
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
                               color: Theme.of(context).colorScheme.onSurface),
+                          textAlign: TextAlign.center,
                         ),
                       ),
                       Row(
@@ -309,7 +310,7 @@ class _AboutTheDevState extends State<AboutTheDev> {
                       height: 24,
                       width: 24,
                       child: Image.asset(
-                        'lib/assets/awesome-github@2x.png',
+                        'lib/assets/awesome-github.png',
                         color: colorScheme.secondary,
                       ),
                     ),
