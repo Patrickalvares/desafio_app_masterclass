@@ -2,7 +2,6 @@ import 'package:desafio_app_masterclass/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-
 import 'homepage.dart';
 
 class AboutTheDev extends StatefulWidget {
@@ -205,6 +204,42 @@ class _AboutTheDevState extends State<AboutTheDev> {
                 FlutterBanner(),
               ],
             ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 14.0,
+            ),
+            child: Text(
+              'Habilidades e Competências',
+              style: GoogleFonts.poppins(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                  color: Theme.of(context).colorScheme.secondary),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(14),
+            child: Container(
+              height: 189,
+              width: 401,
+              decoration: BoxDecoration(
+                color: colorScheme.background,
+                borderRadius: BorderRadius.circular(26),
+              ),
+              child: Column(
+                children: [
+                  Column(
+                    children: [
+                      buildSkillRow(context, 'Dart/Flutter', 0.5),
+                      buildSkillRow(context, 'JavaScript', 0.15),
+                      buildSkillRow(context, 'C', 0.6),
+                      buildSkillRow(context, 'Python', 0.01),
+                      buildSkillRow(context, 'HTML/CSS', 0.25),
+                    ],
+                  )
+                ],
+              ),
+            ),
           )
         ],
       ),
@@ -352,4 +387,46 @@ class FlutterBanner extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget buildSkillRow(BuildContext context, String skill, double progress) {
+  final colorScheme = Theme.of(context).colorScheme;
+
+  return Padding(
+    padding: const EdgeInsets.only(top: 17, left: 14, right: 14),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          skill,
+          style: GoogleFonts.poppins(
+              fontSize: 12,
+              fontWeight: FontWeight.w600,
+              color: colorScheme.onSurface),
+        ),
+        buildProgressBar(context, progress),
+      ],
+    ),
+  );
+}
+
+Widget buildProgressBar(BuildContext context, double progress) {
+  final colorScheme = Theme.of(context).colorScheme;
+
+  return Container(
+    decoration: BoxDecoration(
+      color: colorScheme.background,
+      borderRadius: BorderRadius.circular(26),
+    ),
+    height: 9,
+    width: 194,
+    child: ClipRRect(
+      borderRadius: BorderRadius.circular(26),
+      child: LinearProgressIndicator(
+        value: progress,
+        color: colorScheme.primary,
+        backgroundColor: colorScheme.tertiary,
+      ),
+    ),
+  );
 }
