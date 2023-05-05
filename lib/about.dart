@@ -257,21 +257,32 @@ class _AboutTheDevState extends State<AboutTheDev> {
                 ),
                 onPressed: () {
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const HomePage1()));
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          const HomePage1(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        return FadeTransition(
+                          opacity: animation,
+                          child: child,
+                        );
+                      },
+                      transitionDuration: const Duration(milliseconds: 500),
+                    ),
+                  );
                 },
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     SizedBox(
-                      height: 24,
-                      width: 24,
-                      child: Image.asset(
-                        'lib/assets/Icon feather-target@2x.png',
-                        color: colorScheme.secondary,
-                      ),
-                    ),
+                        height: 24,
+                        width: 24,
+                        child: Icon(
+                          Icons.radar_rounded,
+                          color: colorScheme.secondary,
+                          size: 30,
+                        )),
                     Text(
                       'Atividades',
                       style: GoogleFonts.montserrat(

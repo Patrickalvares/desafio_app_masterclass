@@ -1,7 +1,7 @@
+import 'package:desafio_app_masterclass/splashscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
-import 'package:desafio_app_masterclass/homepage.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
     ThemeNotifier themeNotifier = Provider.of<ThemeNotifier>(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Desafio Masterclass',
       theme: ThemeData(
         brightness: Brightness.light,
         colorScheme: const ColorScheme.light(
@@ -53,7 +53,7 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       themeMode: themeNotifier.isDarkTheme ? ThemeMode.dark : ThemeMode.light,
-      home: const HomePage1(),
+      home: const SplashScreen(),
     );
   }
 }

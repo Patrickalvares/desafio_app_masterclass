@@ -117,13 +117,13 @@ class _HomePage1State extends State<HomePage1> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     SizedBox(
-                      height: 24,
-                      width: 24,
-                      child: Image.asset(
-                        'lib/assets/Icon feather-target@2x.png',
-                        color: colorScheme.secondary,
-                      ),
-                    ),
+                        height: 24,
+                        width: 24,
+                        child: Icon(
+                          Icons.radar_rounded,
+                          color: colorScheme.secondary,
+                          size: 30,
+                        )),
                     Text(
                       'Atividades',
                       style: GoogleFonts.montserrat(
@@ -174,9 +174,20 @@ class _HomePage1State extends State<HomePage1> {
                     TextButton.styleFrom(padding: const EdgeInsets.all(10.0)),
                 onPressed: () {
                   Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const AboutTheDev()));
+                    context,
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          const AboutTheDev(),
+                      transitionsBuilder:
+                          (context, animation, secondaryAnimation, child) {
+                        return FadeTransition(
+                          opacity: animation,
+                          child: child,
+                        );
+                      },
+                      transitionDuration: const Duration(milliseconds: 500),
+                    ),
+                  );
                 },
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
