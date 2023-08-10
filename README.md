@@ -26,8 +26,5 @@ Como este é um projeto para estudos, sinta-se à vontade para clonar, modificar
 
 Este projeto é de código aberto e foi criado apenas para fins educativos. Não tem intenções comerciais.
 
-## Licença 📄
-
-Este projeto é licenciado sob a licença MIT - veja o arquivo [LICENSE.md](LICENSE.md) para detalhes.
 
 ---
